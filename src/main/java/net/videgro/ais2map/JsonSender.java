@@ -21,12 +21,12 @@ public class JsonSender {
 	 * Sends JSON message via UDP
 	 * @param message The JSON message
 	 */
-	public void send(final String message){			
-		try {
-			DatagramSocket clientSocket = new DatagramSocket();		
-			byte[] sendData = new byte[1024];
+	public void send(final String message){
+		byte[] sendData = new byte[1024];
+		DatagramPacket sendPacket;
+		try (DatagramSocket clientSocket = new DatagramSocket()){
 			sendData = message.getBytes();
-		    DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, settings.getIpAddressJson(),settings.getPortJson());
+		    sendPacket = new DatagramPacket(sendData, sendData.length, settings.getIpAddressJson(),settings.getPortJson());
 		    clientSocket.send(sendPacket);
 		    clientSocket.close(); 
 		} catch (SocketException e) {
@@ -34,5 +34,7 @@ public class JsonSender {
 		} catch (IOException e){
 			LOGGER.error(e);
 		}
+		sendData=null;
+		sendPacket=null;
 	}
 }
