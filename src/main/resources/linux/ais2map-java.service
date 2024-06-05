@@ -1,0 +1,15 @@
+[Unit]
+Description=AIS 2 Map Service - Java
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=30
+UMask=022
+StandardOutput=null
+WorkingDirectory=/home/pi/ais/ais2map/
+ExecStart=/usr/bin/java -jar Ais2map-0.0.1-SNAPSHOT-jar-with-dependencies.jar --logging-dir "" --speech-synthesizer-args "-ven+m1 -w <OUTFILE> '<TEXT>'" --json-address 127.0.0.1 > /dev/null 2>&1
+#ExecStart=/usr/bin/java -jar Ais2map-0.0.1-SNAPSHOT-jar-with-dependencies.jar --logging-dir "" --json-address 127.0.0.1 > /dev/null 2>&1
+
+[Install]
+WantedBy=multi-user.target

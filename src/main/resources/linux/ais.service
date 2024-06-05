@@ -1,0 +1,15 @@
+[Unit]
+Description=AIS Service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=30
+UMask=022
+StandardOutput=null
+# PPM: 43 / 62
+ExecStart=/home/pi/ais/rtl-ais/rtl_ais -p 62 -R on -n -h 127.0.0.1
+#ExecStart=/home/pi/ais/rtl-ais/rtl_ais -r 162.017M -p 0 -R on -n -h 127.0.0.1
+
+[Install]
+WantedBy=multi-user.target

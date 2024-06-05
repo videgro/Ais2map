@@ -1,0 +1,18 @@
+[Unit]
+Description=AIS 2 Map Service - NodeJs
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=30
+UMask=022
+StandardOutput=null
+WorkingDirectory=/home/pi/ais/ais2map/src/main/resources/server/
+Environment="HTTP_PORT=8383"
+Environment="UDP_PORT=10111"
+Environment="UDP_ADDRESS=127.0.0.1"
+Environment="DEBUG=1"
+ExecStart=/usr/bin/node main.js > /dev/null 2>&1
+
+[Install]
+WantedBy=multi-user.target
