@@ -5,7 +5,7 @@ LOG_FILE=/dev/null;
 
 echo "Start AIS 2 MAP..."; 
 cd ${AIS_2_MAP_DIR}
-java -jar Ais2map-0.0.1-SNAPSHOT-jar-with-dependencies.jar --ais-address 192.168.178.20 --logging-dir "" --speech-synthesizer-bin /usr/bin/pico2wave --speech-synthesizer-args "-w <OUTFILE> '<TEXT>'" > ${LOG_FILE} 2>&1 &
+java -jar Ais2map-0.0.2-SNAPSHOT-jar-with-dependencies.jar --ais-address 192.168.178.20 --logging-dir "" --speech-synthesizer-bin /usr/bin/pico2wave --speech-synthesizer-args "-w <OUTFILE> '<TEXT>'" > ${LOG_FILE} 2>&1 &
 
 echo "Start Node.js...";
 cd ${AIS_2_MAP_DIR}/src/main/resources/server/

@@ -15,7 +15,7 @@ mkdir ~/ais/ais2map/src/main
 cd ~/ais/ais2map
 
 From development machine
-scp ~/workspaces/workspace_github/Ais2map/target/Ais2map-0.0.1-SNAPSHOT-jar-with-dependencies.jar pi@raspberrypi:/home/pi/ais/ais2map/
+scp ~/workspaces/workspace_github/Ais2map/target/Ais2map-0.0.2-SNAPSHOT-jar-with-dependencies.jar pi@raspberrypi:/home/pi/ais/ais2map/
 scp -R ~/workspaces/workspace_github/Ais2map/resources pi@raspberrypi:/home/pi/ais/ais2map/src/main/ 
 
 At RaspberryPi

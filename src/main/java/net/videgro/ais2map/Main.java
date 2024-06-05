@@ -36,6 +36,7 @@ public class Main {
 	private static final Logger LOGGER = LogManager.getRootLogger();
 
 	private Settings settings = new Settings();
+	private AisRepeater aisRepeater;
 	private AisParser aisParser;
 	private JsonSender jsonSender;
 
@@ -47,11 +48,12 @@ public class Main {
 			if (settings.isDemoMode()) {
 				demoMode();
 			} else {
+				aisRepeater = new AisRepeater(settings.getAisRepeaters());
 				aisParser = new AisParser(settings);
-
 				final AisReader reader = AisReaders.createUdpReader(settings.getIpAddressAisStr(),settings.getPortAis());
 				reader.registerHandler(new Consumer<AisMessage>() {
 					public void accept(AisMessage aisMessage) {
+						aisRepeater.repeat(aisMessage.getVdm().getRawSentencesJoined());
 						final String json = aisParser.parse(aisMessage);
 						jsonSender.send(json);
 					}

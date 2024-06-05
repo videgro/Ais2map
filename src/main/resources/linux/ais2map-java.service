@@ -8,8 +8,8 @@ RestartSec=30
 UMask=022
 StandardOutput=null
 WorkingDirectory=/home/pi/ais/ais2map/
-ExecStart=/usr/bin/java -jar Ais2map-0.0.1-SNAPSHOT-jar-with-dependencies.jar --logging-dir "" --speech-synthesizer-args "-ven+m1 -w <OUTFILE> '<TEXT>'" --json-address 127.0.0.1 > /dev/null 2>&1
-#ExecStart=/usr/bin/java -jar Ais2map-0.0.1-SNAPSHOT-jar-with-dependencies.jar --logging-dir "" --json-address 127.0.0.1 > /dev/null 2>&1
+ExecStart=/usr/bin/java -jar Ais2map-0.0.2-SNAPSHOT-jar-with-dependencies.jar --logging-dir "" --speech-synthesizer-args "-ven+m1 -w <OUTFILE> '<TEXT>'" --ais-repeaters=144.76.105.244:xxxx,5.9.207.224:xxxx --json-address 127.0.0.1 > /dev/null 2>&1
+#ExecStart=/usr/bin/java -jar Ais2map-0.0.2-SNAPSHOT-jar-with-dependencies.jar --logging-dir "" --json-address 127.0.0.1 > /dev/null 2>&1
 
 [Install]
 WantedBy=multi-user.target
