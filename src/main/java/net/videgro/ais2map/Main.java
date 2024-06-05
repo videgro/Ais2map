@@ -57,7 +57,7 @@ public class Main {
 					}
 				});
 				reader.start();
-				listenSocketIoNmea2sendSocketIoShip();
+				//listenSocketIoNmea2sendSocketIoShip();
 				try {
 					reader.join();
 				} catch (InterruptedException e) {
